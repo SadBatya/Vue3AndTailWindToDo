@@ -16,17 +16,18 @@
         <div class="m-auto mt-10 text-white">
           <header class="pt-5 pb-5 text-2xl border-2 border-white rounded-md flex flex-col justify-center items-center">
             <h1 class="pl-96 pr-96">My Task Manager</h1>
-            <button-counter @click="hello"></button-counter>
+            <button @click="hello"></button>
           </header>
           <main class="mt-12 flex flex-col justify-center">
             <form @submit.prevent>
               <input 
               class="w-96 pt-5 pl-5 pb-5 border-2 border-black rounded-md text-black" 
               type="text" 
-              v-model="inputValue" 
+              v-model.trim="inputValue" 
               :placeholder="placeholder"
               @keypress.enter="createNewTodo">  
               <button class="p-5 text-white border-2 border-black rounded-md mr-2 ml-2 hover:border-white transition duration-300" @click="createNewTodo">Создать задачу</button>
+              <button class="p-5 text-white border-2 border-black rounded-md mr-2 ml-2 hover:border-white transition duration-300" @click="removeAllToDo">Удалить все задачи</button>
               <div class="text-red-600 text-xl mt-3 font-medium" v-show="inputValue.includes('@')">
                 строка не должна содержать символ '@'
               </div>

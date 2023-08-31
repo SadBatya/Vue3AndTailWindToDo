@@ -9,13 +9,15 @@ const App = {
   methods: {
     createNewTodo(){
       if(this.inputValue !== ''){
-       
         this.todos.push(this.inputValue)
         this.inputValue = ''
       }
     },
     removeTodo(index){
       this.todos.splice(index, 1)
+    },
+    removeAllToDo(){
+      this.todos.length = 0
     },
     getTime(){
       let date = new Date()
